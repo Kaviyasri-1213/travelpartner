@@ -1,0 +1,92 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions</title>
+
+{% load static %}
+{% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <style>
+    body {
+      background-image: url("{% static 'back.jpg' %}");
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    .box {
+      background: rgba(255, 255, 255, 0.9);
+      padding: 25px;
+      width: 100%;
+      max-width: 600px;
+      border-radius: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+
+    h2 {
+      font-weight: 700;
+      color: #007bff;
+      margin-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #444;
+    }
+
+    ul {
+      padding-left: 18px;
+      text-align: left;
+    }
+
+    footer {
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      color: white;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>Terms & Conditions</h2>
+    <p class="text-muted">Updated: 2025</p>
+    <hr>
+
+    <p><strong>Welcome to Travel Partner!</strong></p>
+
+    <ul>
+      <li>Use the website safely and honestly.</li>
+      <li>Recommendations are based on your inputs and may vary in real life.</li>
+      <li>Your personal details are kept private and safe.</li>
+      <li>We are not responsible for third-party websites or external links.</li>
+      <li>Website content should not be misused or copied illegally.</li>
+    </ul>
+
+    <p>By using this site, you agree to these simple terms </p>
+
+    <p>Need help?  
+      <a href="{% url 'contact' %}" class="text-primary fw-semibold text-decoration-none">Contact us</a>
+    </p>
+  </div>
+
+  <footer>© 2025 Travel Partner</footer>
+
+</body>
+</html>

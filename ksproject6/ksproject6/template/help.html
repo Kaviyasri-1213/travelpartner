@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help</title>{% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+
+    <style>
+         body{
+          background-image: url("{% static 'bg.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+          justify-content: center;
+          align-items: center;
+          display: flex;
+          
+        }
+        .div{
+          height: fit-content;
+          width: fit-content;
+           background: rgba(255, 255, 255, 0.85);
+            padding: 30px;
+            width: 450px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+      </style>
+</head>
+<body>
+  <div class="div">
+
+    <h2>Help Center</h2>
+
+    <h4>1. How to use this website?</h4>
+    <p>Open the homepage, choose your option, and follow the steps.</p>
+
+    <h4>2. I can’t find something. What to do?</h4>
+    <p>Try refreshing the page. Still not working? Contact us.</p>
+
+    <h4>3. My page is not loading.</h4>
+    <p>Check your internet connection and try again.</p>
+
+    <h4>4. How to report a problem?</h4>
+    <p>Go to the Contact page and describe your issue.</p><a href="{% url 'help' %}"></a>
+</div>
+</body>
+</html>

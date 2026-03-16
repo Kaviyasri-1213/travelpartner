@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Destination</title>
+     {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+    <style>
+        body {
+            background-color: #f4f8fb;
+          background-image: url("{% static 'bg.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+        }
+        .card {
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+       
+    </style>
+</head>
+<body>
+    <div class="container my-5 ">
+    <h2 class="text-center text-white mb-4">Your Travel Recommendations ✨</h2>
+
+    {% if results %}
+        <div class="row">
+            {% for r in results %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-lg">
+                    <img src="{% static r.img %}" class="card-img-top" style="height:200px;object-fit:cover;">
+                    <div class="card-body">
+                        <h4 class="card-title">{{ r.name }}</h4>
+                        <p class="card-text">{{ r.reason }}</p>
+                        <a href="{% url 'viewpack' %}?date={{ start_date }}&place={{ r.name }}&budget={{ budget }}&email={{ email }}" class="btn btn-primary w-100">View Packages</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-center text-light fs-4">No recommendations found.</p>
+    {% endif %}
+    <div class="text-center mt-4">
+        <a href="{% url 'desti' %}" class="btn btn-light btn-lg">Search Again 🔁</a>
+    </div>
+</body>
+</html>
+    
+
+       
+
+       

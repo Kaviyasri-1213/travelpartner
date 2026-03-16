@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+    <style>
+         body{
+          justify-content: center;
+          align-items: center;
+          background-image: url("{% static 'bg.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+        }
+        .nav-link{
+            color:white;
+        }
+        .nav-link:hover{
+          color: black;
+        }
+        .logo{
+           height:50px;
+           width: 50px;
+           border-radius: 50%;
+        }
+        h1{
+          margin-right: auto;
+          color: white;
+        }
+        .dis{
+          color: black;
+        }
+        .foot{
+          background-color: black;
+          text-align: center;
+          text-decoration: none;
+        }
+        .foot:hover{
+          text-decoration: underline;
+          color: white;
+        }
+        .search{
+          display: flex;
+          justify-content: center;  
+          margin: 20px 0;
+}
+        #exampleDataList {
+          width: 45%;        
+          padding: 10px;     
+          font-size: 17px;
+          border-radius: 30px;  
+          border: 2px solid #0077ff;
+          transition: 0.3s;
+        }
+        #exampleDataList:focus {
+           width: 50%;                        
+           box-shadow: 0 0 12px rgba(0, 119, 255, 0.6);
+           border-color: #0056d6;
+        }
+        .button{
+          height: 50px;
+          width: 100px;
+          background-color: green;
+          border-radius: 30px;
+        }
+</style>
+</head>
+<body>
+    <nav class="navbar navbar-light bg-primary">
+  <div class="container-fluid">
+    <img src="{% static 'mainpic.png' %}" alt="logo" class="logo me-2">
+    <h1>Travel Partner</h1>
+   
+    <ul class="nav justify-content-end">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="{% url 'home' %}">HOME</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'contact' %}">CONTACT</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'help' %}">HELP</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+  </li>
+</ul>
+</div>
+</nav><br>
+<div class="hero">
+  <div class="content text-center text-dark">
+    <h1 class="dis">Discover Your Next Adventure</h1><br>
+    <h3>Find the best travel destinations based on your preferences</h3>
+    <a href="{% url 'login' %}" class="btn btn-primary btn-lg mt-3">Find Your Distinations</a>
+  </div>
+</div><br>
+<h2 style="text-align: center;">Explore Popular Places</h2><br>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'goa.jpg' %}" class="card-img-top" alt="Goa">
+      <div class="card-body">
+        <h5 class="card-title">Goa</h5>
+        <p class="card-text">Golden beaches and vibrant nightlife await you</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'dubai.jpg' %}" class="card-img-top" alt="dubai">
+      <div class="card-body">
+        <h5 class="card-title">Dubai</h5>
+        <p class="card-text">Experience luxury and adventure in the desert city</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'bali.jpg'%}" class="card-img-top" alt="Bali">
+      <div class="card-body">
+        <h5 class="card-title">Bali</h5>
+        <p class="card-text">Find peace in Bali’s lush green beauty</p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'thai.jpg'%}" class="card-img-top" alt="Thailand">
+      <div class="card-body">
+        <h5 class="card-title">Thailand</h5>
+        <p class="card-text">Discover the colors and charm of Thailand</p>
+      </div>
+    </div>
+  </div>
+   <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'manali.jpg'%}" class="card-img-top" alt="manali">
+      <div class="card-body">
+        <h5 class="card-title">Manali</h5>
+        <p class="card-text">Where mountains touch the sky and serenity embraces you</p>
+      </div>
+    </div>
+  </div>
+   <div class="col">
+    <div class="card h-100">
+      <img src="{% static 'kerala.jpg'%}" class="card-img-top" alt="Kerala">
+      <div class="card-body">
+        <h5 class="card-title">Kerala</h5>
+        <p class="card-text">God’s Own Country filled with peace and greenery</p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer class="foot">
+  <p>travelpartner@gmail.com</p>
+  <a href="{% url 'poli' %}">Policies</a><br>
+  <a href="{% url 'terms' %}">Terms and Conditions</a><br>
+</footer>
+
+</body>
+</html>

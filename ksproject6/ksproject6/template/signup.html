@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+    <style>
+          body{
+            background-image: url("{% static 'bg2.jpg' %}");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 15px;
+            width: 450px;
+            text-align: center;
+            box-shadow: 0  0 15px rbga(0,0,0,0.2);
+        }
+        .box h1{
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+       button:hover{
+        color: white;
+       }
+    </style>
+</head>
+<body>
+    <center>
+        <div class="box">
+        <h1>Signup</h1><br>
+        <form action="{% url 'signup' %}" method="POST">
+        {% csrf_token %}
+            <div class="mb-3 text-start">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" id="user" name="username" class="form-control"  placeholder="Enter the username">
+            </div>
+            <div class="mb-3 text-start">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" id="PASSWORD" name="password" class="form-control" placeholder="Enter the password">
+            </div>
+            <div class="mb-3 text-start" >
+            <label for="rpass" class="form-label"> Confirm Password</label>
+            <input type="password" id="rpass" name="repeatpass" class="form-control" placeholder="Confirm password">
+            </div>
+            <div class="mb-3 text-start">
+            <label for="epass" class="form-label">Email</label>
+            <input type="email" id="email" name="emailid" class="form-control" placeholder="Enter the email">
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+
+        </form>
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <p>Already have account? <a href="{% url 'login' %}">Login here</a></p>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+  <style>
+    body {
+      background-image: url("{% static 'bg.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
+    .about-box {
+      background-color: #fff;
+      border-radius: 20px;
+      padding: 40px;
+      width: 100%;
+      max-width: 750px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    h2 {
+      color: #007bff;
+      font-weight: bold;
+    }
+    .highlight {
+      color: #00bcd4;
+      font-weight: 600;
+    }
+    footer {
+      color: white;
+      text-align: center;
+      position: fixed;
+      bottom: 10px;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="about-box text-center">
+    <h2 class="mb-3">About Travel Partner</h2>
+    <p class="text-muted">Your trusted travel companion for planning the perfect trip!</p>
+    <hr class="my-4">
+
+    <h5 class="fw-semibold">Our Mission</h5>
+    <p>
+      At <span class="highlight">Travel Partner</span>, our mission is to help users discover destinations that fit their <strong>budget</strong>,
+      <strong>interests</strong>, and <strong>travel style</strong>. Whether you love luxury resorts, peaceful nature escapes,
+      or adventure-filled getaways — we’ll find the right place for you!
+    </p>
+
+    <h5 class="fw-semibold mt-4">What We Offer</h5>
+    <ul class="text-start mx-auto" style="max-width:600px;">
+      <li>Personalized travel recommendations based on your preferences</li>
+      <li>Destination descriptions, images, and maps</li>
+      <li>User reviews and experience sharing</li>
+      <li>Simple and interactive design built using Django</li>
+    </ul>
+
+    <h5 class="fw-semibold mt-4">About the Developer</h5>
+    <p>
+      This project was created by <strong class="highlight">Kaviya</strong> as part of her Django web development learning journey.
+      It’s designed to help users explore the world while learning web technologies like HTML, CSS, and Python.
+    </p>
+
+    <div class="mt-4">
+      <a href="{% url 'contact' %}" class="btn btn-primary px-4">Contact Us</a>
+      <a href="{% url 'desti' %}" class="btn btn-outline-primary px-4">Back to Home</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Travel Partner</p>
+  </footer>
+
+</body>
+</html>

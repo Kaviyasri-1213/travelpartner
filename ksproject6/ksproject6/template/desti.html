@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination</title>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css%}
+    {% bootstrap_javascript %}
+    <style>
+         body{
+          background-image: url("{% static 'bg.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+        }
+      </style>
+
+</head>
+<body>
+{% block content %}
+<div class="container my-5">
+  <div class="card p-4 shadow-sm mx-auto" style="max-width:700px;">
+    <h3 class="mb-3 text-center">Tell us about your trip</h3>
+
+    <!-- show messages if any -->
+    {% if messages %}
+      {% for m in messages %}
+        <div class="alert alert-{{ m.tags }}">{{ m }}</div>
+      {% endfor %}
+    {% endif %}
+
+    <form method="post" action="{% url 'desti' %}">
+      {% csrf_token %}
+
+      <div class="mb-3">
+        <label class="form-label">Preferred Destination</label>
+        <input type="text" name="destination" class="form-control" 
+               value="{{ destination }}" placeholder="e.g., Goa, Paris">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Travel Type</label>
+        <select name="experience" class="form-select">
+          <option value="">-- Choose --</option>
+          <option value="beach">Beach</option>
+          <option value="adventure">Adventure</option>
+          <option value="culture">Culture</option>
+          <option value="relax">Relaxation</option>
+          <option value="city">City / Sightseeing</option>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Duration (days)</label>
+        <input type="number" min="1" name="duration" class="form-control" placeholder="e.g., 3" value="{{ duration }}">
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Budget (approx, in INR)</label>
+        <input type="number" min="0" name="budget" class="form-control" placeholder="e.g., 15000" value="{{ budget }}">
+      </div>
+
+       <div class="mb-3">
+        <label class="form-label">Start Date (optional)</label>
+        <input type="date" name="start_date" class="form-control" value="{{ start_date }}">
+      </div>
+      <div class="mb-3">
+        <label>Email ID</label>
+        <input type="email" name="email" class="form-control" required>
+      </div>
+
+
+
+      <div class="d-grid">
+        <button type="submit" class="btn btn-primary btn-lg">Get Recommendations</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
+</body>
+</html>

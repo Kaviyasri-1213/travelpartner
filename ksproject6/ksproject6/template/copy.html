@@ -1,0 +1,149 @@
+<div class="search">
+    <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
+    <datalist id="datalistOptions">
+      <option value="Goa">
+      <option value="Dubai">
+      <option value="Bali">
+      <option value="Thailand">
+      <option value="Kerala">
+      <option value="Paris">
+      <option value="Mexico">
+      <option value="New York">
+      <option value="Manali">
+      <option value="Los Angeles">
+      <option value="Singapore">
+      <option value="Maldives">
+      <option value="Tokyo">
+      <option value="London">
+      <option value="Malaysia">
+        </datalist>
+      <button class="button">Search</button>
+    </div>
+    
+        if Signup.objects.filter(user=user).exists():
+            messages.error(request, "Username already taken.")
+            return redirect('signup')
+
+        obj = Signup()
+        obj.username = username
+        obj.password = make_password(PASSWORD)
+        obj.email = email
+        obj.save()
+
+        messages.success(request, "Sign-up successful!")
+        return redirect('login')  
+        <style>
+         body{
+          background-image: url("{% static 'bg.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          height: 100vh;
+        }
+        p{
+            font-size: medium;
+            text-align: center;
+        }
+        .box{
+            background-color: white;
+            width: 600px;
+            justify-content: center;
+            align-items: center;
+            margin-left: 450px;
+            border-radius: 15px;
+            margin-top: 100px;
+        }
+        label{
+            text-align: center;
+        }
+        button:hover{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+  <h3 class="text-center mb-4">Plan Your Perfect Trip</h3>
+  <p>Tell us your preferences, and we’ll suggest the best destinations for you</p>
+  <form method="post">
+    {% csrf_token %}
+    <label>Budget Range</label>
+    <select class="budget">
+    <option value="low">&#8377 20,000</option>
+    <option value="medium">&#8377 20,000 - &#8377 60,000</option>
+    <option value="high">&#8377 60,000 & Above</option>
+    </select><br><br>
+    <label>Type of Experience:</label>
+    <select name="experience">
+      <option value="beach">Beach & Relaxation</option>
+      <option value="adventure">Adventure</option>
+      <option value="luxury">Luxury & Shopping</option>
+      <option value="nature">Nature & Hills</option>
+      <option value="culture">Culture & Heritage</option>
+    </select><br><br>
+ if request.method == 'POST':
+        budget = request.POST['budget']
+        experience = request.POST['experience']
+        duration = request.POST['duration']
+
+        if experience == 'beach':
+            destination = {
+                'name': 'Goa',
+                'desc': 'Golden beaches, vibrant nightlife, and delicious seafood.',
+                'img': "{% static 'goa.jpg' %}",
+            }
+        elif experience == 'adventure':
+            destination = {
+                'name': 'Thailand',
+                'desc': 'Thrilling adventures, tropical islands, and street food.',
+                'img': "{% static 'thai.jpg' %}",
+            }
+        elif experience == 'luxury':
+            destination = {
+                'name': 'Dubai',
+                'desc': 'Luxury shopping, skyscrapers, and desert experiences.',
+                'img': "{% static 'dubai.jpg' %}",
+            }
+        else:
+            destination = {
+                'name': 'Kerala',
+                'desc': 'Peaceful backwaters and green hills for a calm retreat.',
+                'img': "{% static 'kerala.jpg' %}",
+            }
+
+        return render(request, 'recommen.html', {'desti': desti})
+    return render(request,'desti.html')
+
+def recommen(request):
+    if request.method == 'POST':
+        budget = request.POST['budget']
+        experience = request.POST['experience']
+        duration = request.POST['duration']
+
+        if experience == 'Adventure':
+            destination = {
+                'name': 'Thailand',
+                'description': 'Perfect for thrilling adventures and beach fun!',
+                'budg
+    <label>Trip Duration (Days):</label>
+    <select name="duration">
+      <option value="short">1 - 3 days</option>
+      <option value="medium">4 - 7 days</option>
+      <option value="long">More than 7 days</option>
+    </select><br><br>
+
+    <button type="submit" class="btn  w-100"><a href="{% url 'recommen' %}">Find My Destination</a></button>
+  </form>
+   
+</div>
+    </div>
+</body>
+</html>
+
+ # Direct search
+        if destination:
+            recommendations.append({
+                'name': destination.title(),
+                'reason': f"You searched for {destination.title()}.",
+                'img': 'goa.jpg'
+            })

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    {% load django_bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <style>
+        body {
+            background-image: url("{% static 'bg.jpg' %}");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center align-items-center">
+
+<div class="card p-4 shadow" style="width: 400px;">
+    <h3 class="text-center mb-3">Your Travel Package Details</h3>
+
+    <p><b>Travel Date:</b> {{ date }}</p>
+    <p><b>Destination:</b> {{ place }}</p>
+    <p><b>Budget:</b> {{ budget }}</p>
+    <p><b>Email:</b> {{ email }}</p>
+
+
+    <a href="{% url 'confirmbook' %}?email={{ email }}" class="btn btn-primary w-100 mt-3">
+        Confirm Booking
+    </a>
+</div>
+
+</body>
+</html>
