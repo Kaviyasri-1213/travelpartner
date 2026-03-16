@@ -1,7 +1,0 @@
-Django>=4.0
-gunicorn
-whitenoise
-django-bootstrap5
-python-dotenv
-dj-database-url
-psycopg2-binary
